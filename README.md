@@ -30,6 +30,7 @@ python -m pip install -e detectron2
 <table><tbody>
 <!-- START TABLE -->
 <!-- TABLE HEADER -->
+<th valign="bottom">Backbone</th>
 <th valign="bottom">Configs</th>
 <th valign="bottom">PQ</th>
 <th valign="bottom">mIoU_p</th>
@@ -38,7 +39,8 @@ python -m pip install -e detectron2
 <th valign="bottom">Download</th>
 <!-- TABLE BODY -->
 <!-- ROW: 00302_model_0109999 -->
- <tr><td align="left"><a href="./configs/00302.yaml">$\beta=0.0005$</a></td>
+<tr><td align="center">SWIN-T</td>
+<td align="left"><a href="./configs/00302.yaml">$\beta=0.0005$</a></td>
 <td align="center">52.06</td>
 <td align="center">62.76</td>
 <td align="center">41.51</td>
@@ -46,7 +48,8 @@ python -m pip install -e detectron2
 <td align="center"><a href="https://drive.google.com/file/d/1XFEBSMgnWHYVdNF7w5Zo6HbeSWIfc5fG/view?usp=drive_link">model</a></td>
 </tr>
 <!-- ROW: 00297_model_0009999 -->
- <tr><td align="left"><a href="./configs/00297.yaml">$\beta=0.02$</a></td>
+<tr><td align="center">SWIN-T</td>
+<td align="left"><a href="./configs/00297.yaml">$\beta=0.02$</a></td>
 <td align="center">50.79</td>
 <td align="center">62.25</td>
 <td align="center">39.71</td>
@@ -59,6 +62,7 @@ python -m pip install -e detectron2
 <table><tbody>
 <!-- START TABLE -->
 <!-- TABLE HEADER -->
+<th valign="bottom">Backbone</th>
 <th valign="bottom">Configs</th>
 <th valign="bottom">PQ</th>
 <th valign="bottom">mIoU_p</th>
@@ -67,7 +71,8 @@ python -m pip install -e detectron2
 <th valign="bottom">Download</th>
 <!-- TABLE BODY -->
 <!-- ROW: 00308_model_0013999 -->
- <tr><td align="left"><a href="./configs/00308.yaml">$\beta=0.003$</a></td>
+<tr><td align="center">SWIN-T</td>
+<td align="left"><a href="./configs/00308.yaml">$\beta=0.003$</a></td>
 <td align="center">64.18</td>
 <td align="center">80.49</td>
 <td align="center">39.64</td>
@@ -75,7 +80,8 @@ python -m pip install -e detectron2
 <td align="center"><a href="https://drive.google.com/file/d/1AZxFyGTz4pFZuchSmTK7Dj2sHLNHz9Ve/view?usp=drive_link">model</a></td>
 </tr>
 <!-- ROW: 00284_model_0042499 -->
- <tr><td align="left"><a href="./configs/00284.yaml">$\beta=0.01$</a></td>
+<tr><td align="center">SWIN-T</td>
+<td align="left"><a href="./configs/00284.yaml">$\beta=0.01$</a></td>
 <td align="center">62.09</td>
 <td align="center">79.58</td>
 <td align="center">36.04</td>
