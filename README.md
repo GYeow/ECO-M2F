@@ -27,36 +27,11 @@ python -m pip install -e detectron2
 
 ## Model Zoo
 ### Results on COCO
-<table><tbody>
-<!-- START TABLE -->
-<!-- TABLE HEADER -->
-<th valign="bottom">Backbone</th>
-<th valign="bottom">Configs</th>
-<th valign="bottom">PQ</th>
-<th valign="bottom">mIoU_p</th>
-<th valign="bottom">AP_p</th>
-<th valign="bottom">Total GLOPs</th>
-<th valign="bottom">Download</th>
-<!-- TABLE BODY -->
-<!-- ROW: 00302_model_0109999 -->
-<tr><td align="center">SWIN-T</td>
-<td align="left"><a href="./configs/00302.yaml">$\beta=0.0005$</a></td>
-<td align="center">52.06</td>
-<td align="center">62.76</td>
-<td align="center">41.51</td>
-<td align="center">202.39</td>
-<td align="center"><a href="https://drive.google.com/file/d/1XFEBSMgnWHYVdNF7w5Zo6HbeSWIfc5fG/view?usp=drive_link">model</a></td>
-</tr>
-<!-- ROW: 00297_model_0009999 -->
-<tr><td align="center">SWIN-T</td>
-<td align="left"><a href="./configs/00297.yaml">$\beta=0.02$</a></td>
-<td align="center">50.79</td>
-<td align="center">62.25</td>
-<td align="center">39.71</td>
-<td align="center">181.64</td>
-<td align="center"><a href="https://drive.google.com/file/d/1z3r9tzZIUXqQ_cOPiXiR83VAg6QjWJ44/view?usp=drive_link">model</a></td>
-</tr>
-</tbody></table>
+|   Backbone  |   Configs   |   PQ  |   mIoU    |   AP  |  Total GLOPs |   Download    |
+|-------------|-------------|-------|-----------|-------|--------------|---------------|
+|   SWIN-T    |[$\beta=0.0005$](./configs/00302.yaml) |52.06|   62.76   | 41.51 |     202.39    |   [model](https://drive.google.com/file/d/1XFEBSMgnWHYVdNF7w5Zo6HbeSWIfc5fG/view?usp=drive_link)   |
+|   SWIN-T    |[$\beta=0.0005$](./configs/00297.yaml) |50.79|   62.25   | 39.71 |     181.64    |   [model](https://drive.google.com/file/d/1z3r9tzZIUXqQ_cOPiXiR83VAg6QjWJ44/view?usp=drive_link)   |
+
 
 ### Results on Cityscapes
 <table><tbody>
