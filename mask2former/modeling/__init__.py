@@ -9,5 +9,3 @@ from .meta_arch.mask_former_head import MaskFormerHead
 from .meta_arch.mask_former_head_val import MaskFormerHeadVal
 from .meta_arch.per_pixel_baseline import PerPixelBaselineHead, PerPixelBaselinePlusHead
 
-from .pixel_decoder.msdeformattn_skipscale import MSDeformAttnPixelDecoderSkipScale
-from .pixel_decoder.msdeformattn_val import MSDeformAttnPixelDecoderVal

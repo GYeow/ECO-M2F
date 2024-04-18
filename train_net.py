@@ -524,6 +524,8 @@ def setup(args):
 
 
 def main(args):
+    os.environ["DETECTRON2_DATASETS"] = '/net/acadia1b/data/samuel' # CityScapes
+    
     cfg = setup(args)
 
     if args.eval_only:

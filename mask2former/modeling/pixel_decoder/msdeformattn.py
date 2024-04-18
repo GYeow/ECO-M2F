@@ -19,14 +19,6 @@ from ..transformer_decoder.transformer import _get_clones, _get_activation_fn
 from .ops.modules import MSDeformAttn
 
 from .gating import GatingFunction
-from .gating_v0 import GatingFunction_v0
-from .gating_v2 import GatingFunction_v2
-from .gating_v3 import GatingFunction_v3
-from .gating_v4 import GatingFunction_v4
-from .gating_v5 import GatingFunction_v5
-from .gating_v6 import GatingFunction_v6
-from .gating import GatingFunction_v7
-from .gating_dbg import GatingFunction_dbg
 
 
 # MSDeformAttn Transformer encoder in deformable detr
@@ -148,16 +140,7 @@ class MSDeformAttnTransformerEncoder(nn.Module):
 
         self.num_layers_wo_gates = num_layers - num_gates # number of layers without gates, = 2 by defult
 
-        # self.gt = GatingFunction(num_gates_cls=num_gates+1)
-        # self.gt = GatingFunction_v0()
-        # self.gt = GatingFunction_v2(num_gates_cls=num_gates+1)
-        # self.gt = GatingFunction_v3()
-        # self.gt = GatingFunction_v4()
-        # self.gt = GatingFunction_v5()
-        # self.gt = GatingFunction_v6()
-        # TODO
-        self.gt = GatingFunction_v7(num_gates_cls=5) # 2~6:5; 2~5: 4; 2~4:3
-        # self.gt = GatingFunction_dbg()
+        self.gt = GatingFunction(num_gates_cls=5)
 
     @staticmethod
     def get_reference_points(spatial_shapes, valid_ratios, device):
