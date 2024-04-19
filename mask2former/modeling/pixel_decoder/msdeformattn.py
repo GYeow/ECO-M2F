@@ -1,4 +1,6 @@
 # Copyright (c) Facebook, Inc. and its affiliates.
+# Copyright (c) NEC Laboratories America, Inc.. All Rights Reserved
+
 import logging
 import numpy as np
 from typing import Callable, Dict, List, Optional, Tuple, Union

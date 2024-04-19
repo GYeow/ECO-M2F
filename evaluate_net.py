@@ -1,3 +1,5 @@
+
+
 import os
 os.environ["DETECTRON2_DATASETS"] = '/net/acadia1b/data/samuel' # CityScapes
 # os.environ["DETECTRON2_DATASETS"] = '/net/acadia3a/data/acadia1a/samuel' # COCO
@@ -29,7 +31,7 @@ from mask2former import add_maskformer2_config
 import torch
 
 import time
-from train_net import *
+from test_net import *
 
 logger = logging.getLogger("detectron2")
 
@@ -59,12 +61,6 @@ def do_flop(args, cfg):
     total_flops = []
     total_flops_counter = Counter()
     for idx, data in zip(tqdm.trange(args.num_inputs), data_loader):  # noqa
-        # if args.use_fixed_input_size and isinstance(cfg, CfgNode):
-        #     # crop_size = cfg.INPUT.CROP.SIZE[0]
-        #     # data[0]["image"] = torch.zeros((3, crop_size, crop_size))
-        #     data[0]["image"] = torch.zeros((3, W, H))
-        #     data[0]['width'], data[0]['height'] = W, H
-
         flops = FlopCountAnalysis(model, data)
         if idx > 0:
             flops.unsupported_ops_warnings(False).uncalled_modules_warnings(False)
@@ -72,12 +68,10 @@ def do_flop(args, cfg):
         counts += flops.by_operator()
         total_flops.append(flops.total())
         total_flops_counter += flops.by_module()
-    # logger.info("Flops table computed from only one input sample:\n" + flop_count_table(flops))
+        
     import operator as op
     from tabulate import tabulate
-    # print(tabulate(
-    #     [[k, v/args.num_inputs/1e9] for k, v in total_flops_counter.items() if op.countOf(k, ".")<4], 
-    #     headers=["module", "Gflops"], floatfmt=".4f"))
+
     print(tabulate(
         [[k, v/args.num_inputs/1e9] for k, v in total_flops_counter.items()], 
         headers=["module", "Gflops"], floatfmt=".4f"))
@@ -86,9 +80,7 @@ def do_flop(args, cfg):
         "Average GFlops for each type of operators:\n"
         + str([(k, v / (args.num_inputs) / 1e9) for k, v in counts.items()])
     )
-    # logger.info(
-    #     "Total GFlops: {:.3f}±{:.3f}".format(np.mean(total_flops) / 1e9, np.std(total_flops) / 1e9)
-    # )
+
     logger.info(
         "Average GFlops: {:.3f}±{:.3f}".format(np.mean(total_flops) /1e9, np.std(total_flops)/ 1e9)
     )

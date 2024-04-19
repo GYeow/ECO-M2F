@@ -1,3 +1,5 @@
+# Copyright (c) NEC Laboratories America, Inc.. All Rights Reserved
+
 import torch
 from torch import nn
 import torch.nn.functional as F
