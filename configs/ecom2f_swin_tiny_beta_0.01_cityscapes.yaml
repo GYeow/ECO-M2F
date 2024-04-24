@@ -11,31 +11,46 @@ DATASETS:
   PROPOSAL_FILES_TEST: []
   PROPOSAL_FILES_TRAIN: []
   TEST:
-  - coco_2017_val_panoptic_with_sem_seg
+  - cityscapes_fine_panoptic_val
   TRAIN:
-  - coco_2017_train_panoptic
+  - cityscapes_fine_panoptic_train
 GLOBAL:
   HACK: 1.0
 INPUT:
-  COLOR_AUG_SSD: false
+  COLOR_AUG_SSD: true
   CROP:
-    ENABLED: false
+    ENABLED: true
     SINGLE_CATEGORY_MAX_AREA: 1.0
     SIZE:
-    - 0.9
-    - 0.9
-    TYPE: relative_range
-  DATASET_MAPPER_NAME: coco_panoptic_lsj
+    - 512
+    - 1024
+    TYPE: absolute
+  DATASET_MAPPER_NAME: mask_former_panoptic
   FORMAT: RGB
   IMAGE_SIZE: 1024
   MASK_FORMAT: polygon
   MAX_SCALE: 2.0
-  MAX_SIZE_TEST: 1333
-  MAX_SIZE_TRAIN: 1333
+  MAX_SIZE_TEST: 2048
+  MAX_SIZE_TRAIN: 4096
   MIN_SCALE: 0.1
-  MIN_SIZE_TEST: 800
+  MIN_SIZE_TEST: 1024
   MIN_SIZE_TRAIN:
-  - 800
+  - 512
+  - 614
+  - 716
+  - 819
+  - 921
+  - 1024
+  - 1126
+  - 1228
+  - 1331
+  - 1433
+  - 1536
+  - 1638
+  - 1740
+  - 1843
+  - 1945
+  - 2048
   MIN_SIZE_TRAIN_SAMPLING: choice
   RANDOM_FLIP: horizontal
   SIZE_DIVISIBILITY: -1
@@ -68,15 +83,7 @@ MODEL:
     OUT_CHANNELS: 256
   GATING:
     NUM_GATES: 4
-    TRAIN_COEFF: 0.0005
-    TRAIN_FILES:
-    - 125_L2
-    - 125_L3
-    - 125_L4
-    - 125_L5
-    - 125_L6
-    TRAIN_FOLDER: /net/acadia2a/data/myao/evals/COCO_PQs/train
-    TRAIN_THRESHOLD: 0.65
+    TRAIN_COEFF: 0.01
   HEIRA:
     DIM_MUL: 2.0
     DROP_PATH_RATE: 0.0
@@ -198,7 +205,7 @@ MODEL:
     - false
     - false
     DEPTH: 50
-    NORM: FrozenBN
+    NORM: SyncBN
     NUM_GROUPS: 1
     OUT_FEATURES:
     - res2
@@ -379,7 +386,7 @@ MODEL:
     MASK_DIM: 256
     NAME: MaskFormerHead
     NORM: GN
-    NUM_CLASSES: 133
+    NUM_CLASSES: 19
     PIXEL_DECODER_NAME: MSDeformAttnPixelDecoder
     PROJECT_CHANNELS:
     - 48
@@ -475,8 +482,6 @@ MODEL:
     - res5
     PATCH_SIZE: 4
     WINDOW_SIZE: 16
-  WEIGHTS: /net/acadia2a/data/myao/00125/model_0374999.pkl
-OUTPUT_DIR: /net/acadia2a/data/myao/00302/
 SEED: -1
 SOLVER:
   AMP:
@@ -485,16 +490,16 @@ SOLVER:
   BASE_LR: 0.0001
   BASE_LR_END: 0.0
   BIAS_LR_FACTOR: 1.0
-  CHECKPOINT_PERIOD: 5000
+  CHECKPOINT_PERIOD: 2500
   CLIP_GRADIENTS:
     CLIP_TYPE: full_model
     CLIP_VALUE: 0.01
     ENABLED: true
     NORM_TYPE: 2.0
   GAMMA: 0.1
-  IMS_PER_BATCH: 8
-  LR_SCHEDULER_NAME: WarmupMultiStepLR
-  MAX_ITER: 300000
+  IMS_PER_BATCH: 4
+  LR_SCHEDULER_NAME: WarmupPolyLR
+  MAX_ITER: 50000
   MOMENTUM: 0.9
   NESTEROV: false
   NUM_DECAYS: 3
@@ -504,10 +509,9 @@ SOLVER:
   REFERENCE_WORLD_SIZE: 0
   RESCALE_INTERVAL: false
   STEPS:
-  - 327778
-  - 355092
+  - 30000
   WARMUP_FACTOR: 1.0
-  WARMUP_ITERS: 10
+  WARMUP_ITERS: 0
   WARMUP_METHOD: linear
   WEIGHT_DECAY: 0.05
   WEIGHT_DECAY_BIAS: null
@@ -517,19 +521,16 @@ TEST:
   AUG:
     ENABLED: false
     FLIP: true
-    MAX_SIZE: 4000
+    MAX_SIZE: 4096
     MIN_SIZES:
-    - 400
-    - 500
-    - 600
-    - 700
-    - 800
-    - 900
-    - 1000
-    - 1100
-    - 1200
+    - 512
+    - 768
+    - 1024
+    - 1280
+    - 1536
+    - 1792
   DETECTIONS_PER_IMAGE: 100
-  EVAL_PERIOD: 5000
+  EVAL_PERIOD: 2500
   EXPECTED_RESULTS: []
   KEYPOINT_OKS_SIGMAS: []
   PRECISE_BN:

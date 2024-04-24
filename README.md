@@ -12,10 +12,12 @@
 </div>
 <div>
     <a href='https://www.nec-labs.com/' target='_blank'>NEC Laboratories, America</a> <br>
+    <a href="https://www.ucr.edu/" target="_blank">University of California, Riverside</a> <br>
+    <a href="https://ucsd.edu/" target="_blank">University of California, San Diego</a> <br>
 </div>
 <div>
     <h4 align="center">
-        <a href="https://arxiv.org/" target='_blank'>
+        <a href="https://arxiv.org/abs/2404.15244" target='_blank'>
         <img alt="Static Badge" src="https://img.shields.io/badge/arXiv-ECO--M2F-blue?style=flat%22">
         </a>
     </h4>
@@ -47,7 +49,7 @@ conda create -n eco_m2f python=3.8
 conda activate eco_m2f
 
 # install pytorch
-conda install pytorch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 cudatoolkit=11.1 -c pytorch
+conda install pytorch==2.0.1 torchvision==0.15.2 cudatoolkit=11.1 -c pytorch
 
 # install Detectron2 from a local clone
 git clone https://github.com/facebookresearch/detectron2.git
@@ -71,18 +73,18 @@ python test_net.py --num-gpus 1 \
 ### Results on COCO
 |   Backbone  |   Configs   |   PQ  |   mIoU    |   AP  |  Total GLOPs |   Download    |
 |-------------|-------------|-------|-----------|-------|--------------|---------------|
-|   SWIN-T    |[$\beta=0.0005$](./configs/00302.yaml) |52.06|   62.76   | 41.51 |     202.39    |   [model](https://drive.google.com/file/d/1XFEBSMgnWHYVdNF7w5Zo6HbeSWIfc5fG/view?usp=drive_link)   |
-|   SWIN-T    |[$\beta=0.0005$](./configs/00297.yaml) |50.79|   62.25   | 39.71 |     181.64    |   [model](https://drive.google.com/file/d/1z3r9tzZIUXqQ_cOPiXiR83VAg6QjWJ44/view?usp=drive_link)   |
+|   SWIN-T    |[𝜷=0.0005](./configs/ecom2f_swin_tiny_beta_0.0005_coco.yaml) |52.06|   62.76   | 41.51 |     202.39    |   [model](https://drive.google.com/file/d/1XFEBSMgnWHYVdNF7w5Zo6HbeSWIfc5fG/view?usp=drive_link)   |
+|   SWIN-T    |[𝜷=0.02](./configs/ecom2f_swin_tiny_beta_0.02_coco.yaml) |50.79|   62.25   | 39.71 |     181.64    |   [model](https://drive.google.com/file/d/1z3r9tzZIUXqQ_cOPiXiR83VAg6QjWJ44/view?usp=drive_link)   |
 
 
 ### Results on Cityscapes
 |   Backbone  |   Configs   |   PQ  |   mIoU    |   AP  |  Total GLOPs |   Download    |
 |-------------|-------------|-------|-----------|-------|--------------|---------------|
-|   SWIN-T    |[$\beta=0.003$](./configs/00308.yaml) |64.18|    80.49|  39.64|    507.51    |   [model](https://drive.google.com/file/d/1AZxFyGTz4pFZuchSmTK7Dj2sHLNHz9Ve/view?usp=drive_link)   |
-|   SWIN-T    |[$\beta=0.01$](./configs/00284.yaml) |62.09  |   79.58   |  36.04   | 439.67    |   [model](https://drive.google.com/file/d/1FAJ0s5VpL-YJB97_TENrvoXQU5v_V40H/view?usp=drive_link)   |
+|   SWIN-T    |[𝜷=0.003](./configs/ecom2f_swin_tiny_beta_0.003_cityscapes.yaml) |64.18|    80.49|  39.64|    507.51    |   [model](https://drive.google.com/file/d/1AZxFyGTz4pFZuchSmTK7Dj2sHLNHz9Ve/view?usp=drive_link)   |
+|   SWIN-T    |[𝜷=0.01](./configs/ecom2f_swin_tiny_beta_0.01_cityscapes.yaml) |62.09  |   79.58   |  36.04   | 439.67    |   [model](https://drive.google.com/file/d/1FAJ0s5VpL-YJB97_TENrvoXQU5v_V40H/view?usp=drive_link)   |
 
 ## Contact
-If you have any questions, please feel free to reach me out at `aaich@nec-labs.com`. 
+If you have any questions, please feel free to reach me out at `myao014@ucr.edu`. 
 
 
 ## Acknowledgement
@@ -94,7 +96,12 @@ Code is largely based on [Mask2Former](https://github.com/facebookresearch/Mask2
 If you find our work helpful for your research, please consider citing the following BibTeX entry.
 
 ```BibTeX
-@article{
-
+@misc{yao2024efficient,
+      title={Efficient Transformer Encoders for Mask2Former-style models}, 
+      author={Manyi Yao and Abhishek Aich and Yumin Suh and Amit Roy-Chowdhury and Christian Shelton and Manmohan Chandraker},
+      year={2024},
+      eprint={2404.15244},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
 }
 ```

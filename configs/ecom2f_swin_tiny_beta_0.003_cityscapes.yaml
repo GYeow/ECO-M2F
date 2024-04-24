@@ -83,15 +83,6 @@ MODEL:
     OUT_CHANNELS: 256
   GATING:
     NUM_GATES: 4
-    TRAIN_COEFF: 0.003
-    TRAIN_FILES:
-    - 105_L2
-    - 105_L3
-    - 105_L4
-    - 105_L5
-    - 105_L6
-    TRAIN_FOLDER: /net/acadia2a/data/myao/evals/PQs/train
-    TRAIN_THRESHOLD: 0.65
   HEIRA:
     DIM_MUL: 2.0
     DROP_PATH_RATE: 0.0
@@ -490,8 +481,6 @@ MODEL:
     - res5
     PATCH_SIZE: 4
     WINDOW_SIZE: 16
-  WEIGHTS: /net/acadia2a/data/myao/00105/model_0042999.pkl
-OUTPUT_DIR: /net/acadia2a/data/myao/00308/
 SEED: -1
 SOLVER:
   AMP:

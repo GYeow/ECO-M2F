@@ -73,12 +73,7 @@ def add_maskformer2_config(cfg):
 
     # gating function
     cfg.MODEL.GATING = CN()
-    cfg.MODEL.GATING.TRAIN_FOLDER = "/net/acadia2a/data/myao/evals/PQs/train"
-    cfg.MODEL.GATING.TRAIN_FILES = ["105_L2", "105_L3", "105_L4", "105_L5", "105_L6"]
-    cfg.MODEL.GATING.TRAIN_THRESHOLD = 0.65
-    # cfg.MODEL.GATING.INFERENCE_THRESHOLD = 0.5
     cfg.MODEL.GATING.NUM_GATES = 4
-    cfg.MODEL.GATING.TRAIN_COEFF = 0.01
 
     # swin transformer backbone
     cfg.MODEL.SWIN = CN()
@@ -99,8 +94,6 @@ def add_maskformer2_config(cfg):
     cfg.MODEL.SWIN.OUT_FEATURES = ["res2", "res3", "res4", "res5"]
     cfg.MODEL.SWIN.USE_CHECKPOINT = False
 
-
-    # Added by AA
     # Training tricks # added for Lite-M2F (aka. skip scale)
     cfg.MODEL_EMA = CN()
     cfg.MODEL_EMA.DECAY = 0.999
@@ -154,8 +147,6 @@ def add_maskformer2_config(cfg):
     cfg.MODEL.SimMIMSwin.IMG_SIZE = 1024
     cfg.MODEL.SimMIMSwin.FPN_OUT_DIM = 768
 
-
-
     # HEIRA transformer backbone
     cfg.MODEL.HEIRA = CN()
     cfg.MODEL.HEIRA.INPUT_SIZE = (512, 1024) # (224, 224)
@@ -173,21 +164,6 @@ def add_maskformer2_config(cfg):
     cfg.MODEL.HEIRA.patch_stride = (4, 4)
     cfg.MODEL.HEIRA.patch_padding = (3, 3)
     cfg.MODEL.HEIRA.OUT_FEATURES = ['stage2', 'stage3', 'stage4']
-
-    # # SimMIMSwin transformer backbone
-    # # cfg.MODEL.SimMIMSwin = CN()
-    # cfg.MODEL.SimMIMSwin.IMG_SIZE = 1024
-    # cfg.MODEL.SimMIMSwin.PATCH_SIZE = 4
-    # cfg.MODEL.SimMIMSwin.EMBED_DIM = 96
-    # cfg.MODEL.SimMIMSwin.DEPTHS = [2, 2, 6, 2]
-    # cfg.MODEL.SimMIMSwin.NUM_HEADS = [3, 6, 12, 24]
-    # # cfg.MODEL.SimMIMSwin.STRIDE = 16
-    # cfg.MODEL.SimMIMSwin.WINDOW_SIZE = 16
-    # cfg.MODEL.SimMIMSwin.MLP_RATIO = 4.0
-    # cfg.MODEL.SimMIMSwin.DROP_PATH_RATE = 0.1
-    # cfg.MODEL.SimMIMSwin.OUT_FEATURES = ["res2", "res3", "res4", "res5"]
-    # cfg.MODEL.SimMIMSwin.FPN_OUT_DIM = 768
-
 
 
     # MViT2 backbone

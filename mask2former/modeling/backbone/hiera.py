@@ -459,13 +459,6 @@ class PatchEmbed(nn.Module):
     def forward(
         self, x: torch.Tensor, mask: Optional[torch.Tensor] = None
     ) -> torch.Tensor:
-        # padding # Added by Abhi
-        # _, _, H, W = x.size()
-        # if W % self.patch_size[1] != 0:
-        #     x = F.pad(x, (0, self.patch_size[1] - W % self.patch_size[1]))
-        # if H % self.patch_size[0] != 0:
-        #     x = F.pad(x, (0, 0, 0, self.patch_size[0] - H % self.patch_size[0]))
-
         x = do_masked_conv(x, self.proj, mask)
         x = x.reshape(x.shape[0], x.shape[1], -1).transpose(2, 1)
         return x
