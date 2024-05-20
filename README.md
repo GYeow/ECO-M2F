@@ -90,6 +90,7 @@ If you have any questions, please feel free to reach me out at `myao014@ucr.edu`
 ## Acknowledgement
 
 Code is largely based on [Mask2Former](https://github.com/facebookresearch/Mask2Former). We thank and acknowledge their effort.
+Please also see our contemporary work on [efficient transformer encoders](https://arxiv.org/abs/2404.14657). 
 
 
 ## Citing ECO-M2F
