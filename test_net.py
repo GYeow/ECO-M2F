@@ -22,8 +22,7 @@ import datetime
 from contextlib import ExitStack, contextmanager
 
 
-os.environ["DETECTRON2_DATASETS"] = '/net/acadia1b/data/samuel' # CityScapes
-# os.environ["DETECTRON2_DATASETS"] = '/net/acadia3a/data/acadia1a/samuel' # COCO
+os.environ["DETECTRON2_DATASETS"] = 'PATH_TP_YOUR_DATASETS'
 
 from detectron2.utils.events import get_event_storage
 
